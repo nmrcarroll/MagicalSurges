@@ -6,7 +6,7 @@ Github https://github.com/nmrcarroll/roll20-api-scripts/tree/master/MagicalSurge
 
 on('ready', () => {
   //Modify the constants below to fit your game
-
+  surgeTable,
   // A comma seperated list of characters who use Wild Magic (Multiple characters: 'John,Jake,Aron').
   const CHARACTERS = 'Zarnof';
   //Custom magical surges in dictionary format
@@ -96,6 +96,22 @@ on('ready', () => {
   };
 
   //Don't change below this line unless you know what you're doing.
+
+  createTable = function(){
+    surgeTable = findObjs({
+        type: "rollabletable",
+        name: "MagicalSurges"
+    })[0];
+    if (!surgeTable){
+      surgeTable = createObj("rollabletable", {
+          name: "MagicalSurges"
+      });
+      createObj('tableitem',{
+          name: 'Default surge',
+          rollabletableid: surgeTable.id
+      });
+    }
+  }
 
   //Makes sure that the number generated matches how surges are stored by adding zeros.
   function zeroFill( number, width )

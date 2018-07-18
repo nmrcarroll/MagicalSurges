@@ -11,6 +11,6 @@ This project started as a modification of https://github.com/RobinKuiper/Roll20A
 # Usage
 To use this script make sure to modify the two constants to fit your needs.  
 
-First "const CHARACTERS" on line 9 must be a comma separated list of characters who you wish to use wild magic.
+First "const CHARACTERS" must be a comma separated list of characters who you wish to use wild magic.
 
 Second you can modify "const Surges" to match the wild magic surge table of your choice. The PHB table is not provided due to copyright, however you can enter it in yourself.
