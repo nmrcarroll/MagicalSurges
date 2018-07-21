@@ -13,12 +13,15 @@ var MagicalSurges = MagicalSurges || (function(){
 
   checkInstall = function(){
 
-    if( ! state.MagicalSurges ) {
+    if(!state.MagicalSurges){
       state.MagicalSurges = {
-        //version: version,
-        sorcerers: []
+        sorc: [],
+        count: 0,
+        testing: []
       };
     };
+
+
 
     surgeTable = findObjs({
         type: "rollabletable",
@@ -43,12 +46,31 @@ var MagicalSurges = MagicalSurges || (function(){
   },
 
   addPlayer = function(obj){
-    state.MagicalSurges.sorcerers.push(obj);
+    var character = findObjs({type: 'character', name: obj});
+    if(character.length > 0){
+        state.MagicalSurges.sorc.push(obj);
+        sendChat('MagicalSurges', "/w gm Added " + obj + ", you currently have " + state.MagicalSurges.sorc + " in your list.")
+    }
+    else{
+      sendChat('MagicalSurges', "/w gm Could not find player named '" + obj + "' please make sure to use the exact same name as on the characters handout.");
+    };
+  },
+
+  removePlayer = function(obj){
+    var index = state.MagicalSurges.sorc.indexOf(obj);
+    if(index != -1){
+      state.MagicalSurges.sorc.splice(index,1);
+      sendChat('MagicalSurges', "/w gm Removed " + obj + ", you currently have " + state.MagicalSurges.sorc + " in your list.")
+    }
+    else{
+      sendChat('MagicalSurges', "/w gm Could not find player named '" + obj + "' in the list. You do have : " + state.MagicalSurges.sorc);
+    };
   },
 
   makeSurge = function(){
     var roll = randomInteger(arrayTable.length);
-    var effect = arrayTable[roll].get("name");
+    log(roll);
+    var effect = arrayTable[roll-1].get("name");
     var chatMesg = "";
     chatMesg = '&{template:atk} {{rname=WildRoll}} {{rnamec=rnamec}} {{r1='+ roll + '}} {{normal=1}} {{desc=' + effect + '}}';
     return chatMesg;
@@ -59,8 +81,12 @@ var MagicalSurges = MagicalSurges || (function(){
     if (msg.type !== "api") {
       if(msg && msg.rolltemplate && (msg.rolltemplate === 'spell' || msg.rolltemplate === 'atk' || msg.rolltemplate === 'dmg' || msg.rolltemplate === 'atkdmg')){
             let character_name = msg.content.match(/charname=([^\n{}]*[^"\n{}])/);
+            log(msg);
             character_name = RegExp.$1;
-            let allowed_characters = state.MagicalSurges.sorcerers;
+            log(character_name);
+            var allowed_characters = state.MagicalSurges.sorc;
+            log(allowed_characters);
+            log(allowed_characters.includes(character_name));
             //Check if the caster is on the allowed list of characters.
             if(allowed_characters.includes(character_name)){
                 let spell_level = msg.content.match(/spelllevel=([^\n{}]*[^"\n{}])/);
@@ -101,7 +127,7 @@ var MagicalSurges = MagicalSurges || (function(){
     };
     args  = msg.content.split(/\s+/);
     switch(args[0]){
-      case '!mSurge':
+      case '!MagicalSurge':
         if(args.length === 1){
           sendChat(msg.who, "/direct " + makeSurge());
           break;
@@ -110,18 +136,28 @@ var MagicalSurges = MagicalSurges || (function(){
           case 'gm':
             sendChat(msg.who, "/w gm " + makeSurge());
             break;
-          case 'addplayer':
-            if(args.length === 3){
-              var character = findObjs({type: 'character', name: args[2]});
-              if(character){
-                addPlayer(args[2]);
+          case 'add':
+            if(args.length > 2){
+              var name = args.slice(2);
+              var name = name.join(" ");
+              var character = findObjs({type: 'character', name: name});
+              if(playerIsGM(msg.playerid)){
+                addPlayer(name);
+                break;
               }
-              else{
-                sendChat(msg.who, "/w gm Could not find player named :" + args[2]);
+                break;
+            }
+          case 'remove':
+            if(args.length > 2){
+              var name = args.slice(2);
+              var name = name.join(" ");
+              if(playerIsGM(msg.playerid)){
+                removePlayer(name);
+                break;
               }
+              break;
             }
           }
-          break;
     }
   },
   registerEventHandlers = function(){
