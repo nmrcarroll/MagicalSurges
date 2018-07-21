@@ -1,6 +1,6 @@
 # Magical Surges
 
-This is an script for processing magical surges for characters automatically.
+This is an script for processing magical surges for characters automatically on Roll20.
 It allows for customization of your surge list and the ability to select which characters it will run on automatically.
 
 This script has only been tested on the 5eOGL character sheet and modifications for any other sheet may still be necessary.
@@ -9,7 +9,7 @@ This project started as a modification of https://github.com/RobinKuiper/Roll20A
 
 
 # Usage
-This script will automatically generate a rollable table for you named "MagicalSurges". All you need to do is name each item what the surge should be, for example: "Cast fireball on self".
+Once this script is installed it will automatically generate a rollable table for you named "MagicalSurges". All you need to do is name each item what the surge should be, for example: "Cast fireball on self".
 
 If you already have a list I recommend using https://github.com/shdwjk/Roll20API/blob/master/TableExport/TableExport.js to import your table just a little bit quicker.
 
