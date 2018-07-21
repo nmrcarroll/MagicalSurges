@@ -32,7 +32,7 @@ var MagicalSurges = MagicalSurges || (function(){
           name: "MagicalSurges"
       });
       createObj('tableitem',{
-          name: 'Default surge',
+          name: "DELETE ME WHEN YOU'VE ADDED YOUR OWN SURGES",
           rollabletableid: surgeTable.id
       });
     }
@@ -69,7 +69,6 @@ var MagicalSurges = MagicalSurges || (function(){
 
   makeSurge = function(){
     var roll = randomInteger(arrayTable.length);
-    log(roll);
     var effect = arrayTable[roll-1].get("name");
     var chatMesg = "";
     chatMesg = '&{template:atk} {{rname=WildRoll}} {{rnamec=rnamec}} {{r1='+ roll + '}} {{normal=1}} {{desc=' + effect + '}}';
@@ -81,12 +80,8 @@ var MagicalSurges = MagicalSurges || (function(){
     if (msg.type !== "api") {
       if(msg && msg.rolltemplate && (msg.rolltemplate === 'spell' || msg.rolltemplate === 'atk' || msg.rolltemplate === 'dmg' || msg.rolltemplate === 'atkdmg')){
             let character_name = msg.content.match(/charname=([^\n{}]*[^"\n{}])/);
-            log(msg);
             character_name = RegExp.$1;
-            log(character_name);
             var allowed_characters = state.MagicalSurges.sorc;
-            log(allowed_characters);
-            log(allowed_characters.includes(character_name));
             //Check if the caster is on the allowed list of characters.
             if(allowed_characters.includes(character_name)){
                 let spell_level = msg.content.match(/spelllevel=([^\n{}]*[^"\n{}])/);

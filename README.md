@@ -11,7 +11,7 @@ This project started as a modification of https://github.com/RobinKuiper/Roll20A
 # Usage
 Once this script is installed it will automatically generate a rollable table for you named "MagicalSurges". All you need to do is name each item what the surge should be, for example: "Cast fireball on self".
 
-If you already have a list I recommend using https://github.com/shdwjk/Roll20API/blob/master/TableExport/TableExport.js to import your table just a little bit quicker.
+If you already have a list I recommend using https://github.com/shdwjk/Roll20API/blob/master/TableExport/TableExport.js to import your table just a little bit quicker. I have included an example file with my own custom surge sheet for you to use as an example on importing. all you would need to do would be to copy and paste the commands after the TableExport script is installed.
 
 # Commands
 <b>!MagicalSurge</b> = Generate a public surge, able to be used and seen by players as well as the GM.  
