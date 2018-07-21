@@ -12,6 +12,14 @@ var MagicalSurges = MagicalSurges || (function(){
   arrayTable,
 
   checkInstall = function(){
+
+    if( ! state.MagicalSurges ) {
+      state.MagicalSurges = {
+        //version: version,
+        sorcerers: []
+      };
+    };
+
     surgeTable = findObjs({
         type: "rollabletable",
         name: "MagicalSurges"
@@ -35,8 +43,8 @@ var MagicalSurges = MagicalSurges || (function(){
   },
 
   addPlayer = function(obj){
-    null;
-  }
+    state.MagicalSurges.sorcerers.push(obj);
+  },
 
   makeSurge = function(){
     var roll = randomInteger(arrayTable.length);
@@ -52,7 +60,7 @@ var MagicalSurges = MagicalSurges || (function(){
       if(msg && msg.rolltemplate && (msg.rolltemplate === 'spell' || msg.rolltemplate === 'atk' || msg.rolltemplate === 'dmg' || msg.rolltemplate === 'atkdmg')){
             let character_name = msg.content.match(/charname=([^\n{}]*[^"\n{}])/);
             character_name = RegExp.$1;
-            let allowed_characters = CHARACTERS.split(',');
+            let allowed_characters = state.MagicalSurges.sorcerers;
             //Check if the caster is on the allowed list of characters.
             if(allowed_characters.includes(character_name)){
                 let spell_level = msg.content.match(/spelllevel=([^\n{}]*[^"\n{}])/);
@@ -104,7 +112,13 @@ var MagicalSurges = MagicalSurges || (function(){
             break;
           case 'addplayer':
             if(args.length === 3){
-              addPlayer(args[2]);
+              var character = findObjs({type: 'character', name: args[2]});
+              if(character){
+                addPlayer(args[2]);
+              }
+              else{
+                sendChat(msg.who, "/w gm Could not find player named :" + args[2]);
+              }
             }
           }
           break;
