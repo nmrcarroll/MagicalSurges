@@ -15,7 +15,7 @@ var MagicalSurges = MagicalSurges || (function(){
 
     if(!state.MagicalSurges){
       state.MagicalSurges = {
-        sorc: [],
+        sorc: []
       };
     };
 
