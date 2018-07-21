@@ -16,8 +16,6 @@ var MagicalSurges = MagicalSurges || (function(){
     if(!state.MagicalSurges){
       state.MagicalSurges = {
         sorc: [],
-        count: 0,
-        testing: []
       };
     };
 
