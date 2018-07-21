@@ -24,7 +24,7 @@
 !import-table-item --MagicalSurges --You cast arms of Hadar as a 1d4th level spell. --1
 !import-table-item --MagicalSurges --Your next spell cast that would use a spell slot is free, but you are silenced for 1d(spell level) rounds after casting it. --1
 !import-table-item --MagicalSurges --You regain 1d4 sorcery points. --1
-!import-table-item --MagicalSurges --For the next minute you can concentrate on 2 spells at once, but you lose Hit Points equal to the highest spell level maintained at the start of each of your turns if you do. You make separate concentration rolls when taking damage if you're concentrating on 2 spells. --1--1
+!import-table-item --MagicalSurges --For the next minute you can concentrate on 2 spells at once, but you lose Hit Points equal to the highest spell level maintained at the start of each of your turns if you do. You make separate concentration rolls when taking damage if you're concentrating on 2 spells. --1
 !import-table-item --MagicalSurges --You regain all expended sorcery points. --1
 !import-table-item --MagicalSurges --You cast blur on yourself which lasts for 3 rounds and does not require concentration. --1
 !import-table-item --MagicalSurges --Roll 1d2. On a 1 you cast slow on yourself that lasts for 2 rounds. On a 2 you cast haste on yourself that lasts for 2 rounds. Neither requires concentration. --1
@@ -61,7 +61,7 @@
 !import-table-item --MagicalSurges --You gain vulnerability to all damage but damage you do treats resisted damage as normal, and normal damage as the target having vulnerability for 1 minute. --1
 !import-table-item --MagicalSurges --The next spell you cast within 1 minute that does damage, the damage is minimized. --1
 !import-table-item --MagicalSurges --You gain a spectral shield that grants you +2 AC and immunity to magic missile for 1 minute. --1
-!import-table-item --MagicalSurges --A random demon whose CR is equal to your level divided by 2 (round down) appears within 30' of you. Make a Cha saving throw against your own spell save DC. If you make it, the demon is subservient, otherwise it has free will (DM controlled). The demon remains for 4d4 r--1ounds.
+!import-table-item --MagicalSurges --A random demon whose CR is equal to your level divided by 2 (round down) appears within 30' of you. Make a Cha saving throw against your own spell save DC. If you make it, the demon is subservient, otherwise it has free will (DM controlled). The demon remains for 4d4 rounds. --1
 !import-table-item --MagicalSurges --You have advantage on all rolls you make where you don't already have advantage for 2d6 rolls or until you finish a long rest.--1
 !import-table-item --MagicalSurges --All creatures within 60' of you regain 2d8 hit points. --1
 !import-table-item --MagicalSurges --A stat chosen by 1d6 is increased by 4 for one minute. --1
@@ -78,5 +78,5 @@
 !import-table-item --MagicalSurges --One creature you can see gains or loses up to 1d4 to their Attack rolls, Spell Attack rolls, and AC for 1 minute. You lose proficiency total and AC equal to the amount that creature gained or lost for 1 minute. --1
 !import-table-item --MagicalSurges --You cast Spiritual Weapon at the 1st level. --1
 !import-table-item --MagicalSurges --You recover 1 your highest expended spell slot. --1
-!import-table-item --MagicalSurges --You trade a spell slot of level 1d[Max Spell Slot Level] for a spell slot of 1d[Max Spell Slot Level]. If you do not have an available spell slot of what you lose, re-roll that die. You can gain more spell slots of the gained slot level than you can normally cast, but --1it is lost after a rest.
+!import-table-item --MagicalSurges --You trade a spell slot of level 1d[Max Spell Slot Level] for a spell slot of 1d[Max Spell Slot Level]. If you do not have an available spell slot of what you lose, re-roll that die. You can gain more spell slots of the gained slot level than you can normally cast, but it is lost after a rest. --1
 !import-table-item --MagicalSurges --You cast fireball as a third level spell centered on yourself, as if effected by the Empowered metamagic where the DM chooses which dice for you to re-roll. --1
