@@ -85,9 +85,6 @@ var MagicalSurges = MagicalSurges || (function () {
         }
         return m;
       }, args.slice(2).filter(id => allCharIds.includes(id)));
-      log(ids);
-      log(charId2Name);
-      log('IDConvert Done');
       return [ids, charId2Name];
     },
 
@@ -157,12 +154,12 @@ var MagicalSurges = MagicalSurges || (function () {
       switch (args[0]) {
         case '!MagicalSurge':
           if (args.length === 1) {
-            sendChat(msg.who, `/direct ${makeSurge()}`);
+            sendChat('MagicalSurge', `/direct ${makeSurge()}`);
             break;
           }
           switch (args[1]) {
             case 'gm':
-              sendChat(msg.who, `/w gm ${makeSurge()}`);
+              sendChat('MagicalSurge', `/w gm ${makeSurge()}`);
               break;
             case 'add':
             case 'remove':
@@ -183,7 +180,6 @@ var MagicalSurges = MagicalSurges || (function () {
                 } else {
                   sendChat('MagicalSurge', '/w gm No valid characters found.  Please be sure to use the character_id or character name.');
                 }
-                log(state.MagicalSurges.sorc);
               }
           }
       }
