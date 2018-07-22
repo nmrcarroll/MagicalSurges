@@ -16,7 +16,7 @@ If you already have a list I recommend using https://github.com/shdwjk/Roll20API
 # Commands
 <b>!MagicalSurge</b> = Generate a public surge, able to be used and seen by players as well as the GM.  
 <b>!MagicalSurge gm</b> = Send a surge only visible to the GM, players can still use but will not see the result.  
-<b>!MagicalSurge add --charactername</b> = Adds the id for charactername to the list of monitored ids to automatically roll wild magic when spells are cast.
-<b>!MagicalSurge add @{selected|character_id} = Adds the character id that a token represents to the list of monitored ids to automatically roll wild magic when spells are cast
-<b>!MagicalSurge remove --charactername</b> = Removes the id for charactername from the list of monitored ids.
-<b>!MagicalSurge remove @{selected|character_id} = Removes the character id that a token represents from the list of monitored ids
+<b>!MagicalSurge add --charactername</b> = Adds the id for charactername to the list of monitored ids to automatically roll wild magic when spells are cast.  
+<b>!MagicalSurge add @{selected|character_id}</b> = Adds the character id that a token represents to the list of monitored ids to automatically roll wild magic when spells are cast  
+<b>!MagicalSurge remove --charactername</b> = Removes the id for charactername from the list of monitored ids.  
+<b>!MagicalSurge remove @{selected|character_id}</b> = Removes the character id that a token represents from the list of monitored ids  
