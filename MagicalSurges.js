@@ -5,7 +5,7 @@ Github https://github.com/nmrcarroll/roll20-api-scripts/tree/master/MagicalSurge
 */
 
 var MagicalSurges = MagicalSurges || (function () {
-  let version = '0.0.4',
+  let version = '0.0.5',
     surgeTable,
     arrayTable,
 
@@ -145,6 +145,7 @@ var MagicalSurges = MagicalSurges || (function () {
               sendChat(msg.who, `/w gm ${mSurge}`);
               sendChat(msg.who, `/w ${msg.who} ${mSurge}`);
             }
+            return roll;
           }
         }
       }
